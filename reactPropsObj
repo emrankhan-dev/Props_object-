@@ -1,0 +1,19 @@
+React can not Render Object! Sounds Confusing, Right?
+
+Long Story Short: (TL; DR)
+Browsers primarily understand HTML, CSS, and JavaScript. When you pass something (except object) into props, JSX automatically converts it into a renderable format and updates the virtual DOM (because it's faster than direct DOM updates). But when you try to pass a raw object directly into JSX, React gets confused and can’t interpret it properly — it's like double objects for React.
+
+So, what is the solution? 
+➡️ Convert the object into a string using JSON.stringify(). OR
+➡️ Treat the object as a nested object by accessing its properties.
+
+Example:
+
+const Person = {myName: "Emran Khan"}
+return (
+ <main>
+ {JSON.stringify(Person)}
+ <br />
+ {Person.myName}
+ </main>
+)
